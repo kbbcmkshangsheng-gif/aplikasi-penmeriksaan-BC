@@ -1,15 +1,47 @@
 # Aplikasi Pemeriksaan BC
 
-Aplikasi web untuk menginput dan mengelola barang hasil pemeriksaan Bea Cukai.
+Aplikasi web untuk sistem pemeriksaan dokumen pabean (Bea Cukai) berbasis React + Firebase.
+
+## Tech Stack
+- **React 18** + TypeScript
+- **Firebase** (Auth + Firestore)
+- **Tailwind CSS** + Framer Motion
+- **Vite** (build tool)
+- **jsPDF** (export laporan PDF)
 
 ## Fitur
-- Input data barang hasil pemeriksaan
-- Simpan data di localStorage
-- Tampilkan daftar barang dalam tabel
-- Hapus data barang
-- Export data ke CSV
+- Login dengan Email/Password atau Google
+- Buat & kelola dokumen pemeriksaan (BC 2.3 / BC 4.0)
+- Input barang dengan foto, nomor seri, jumlah
+- Input & kelola kontainer
+- Export laporan ke PDF
+- Download foto barang/kontainer
+- Role admin (melihat semua data)
 
-## Cara Pakai
-1. Buka file `index.html` di browser
-2. Isi form lalu klik **Tambah Barang**
-3. Klik **Export CSV** untuk unduh data
+## Cara Setup
+
+1. Clone repo ini
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Buat file `firebase-applet-config.json` dengan konfigurasi Firebase Anda:
+   ```json
+   {
+     "apiKey": "...",
+     "authDomain": "...",
+     "projectId": "...",
+     "storageBucket": "...",
+     "messagingSenderId": "...",
+     "appId": "...",
+     "firestoreDatabaseId": "(default)"
+   }
+   ```
+4. Deploy Firestore rules:
+   ```bash
+   firebase deploy --only firestore:rules
+   ```
+5. Jalankan dev server:
+   ```bash
+   npm run dev
+   ```
